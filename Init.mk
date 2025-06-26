@@ -3,8 +3,8 @@ TRACKING := .gitignore README.md Makefile
 .PHONY: init
 init: | .git
 	@echo "Creating new project ..."
-	$(MAKE) .gitignore
-	$(MAKE) README.md
+	$(MAKE) -f Init.mk .gitignore
+	$(MAKE) -f Init.mk README.md
 
 README.md: | .git
 	@read -p "Enter project title (human readable): " title; \
@@ -12,7 +12,6 @@ README.md: | .git
 	git add README.md; \
 	git commit -m "Initialize project"; \
 	echo "Project \"$$title\" created."
-
 
 .gitignore: | .git
 	@echo "*" >> $@
