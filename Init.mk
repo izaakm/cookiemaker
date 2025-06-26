@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-TRACKING := .gitignore *.md Makefile
+TRACKING := .gitignore Makefile "*.md" "*.py" "*.sh" "*.yaml" "*.yml"
 
 .PHONY: init
 init: | .git
@@ -24,9 +24,9 @@ README.md: | .git
 	@echo "!*/" >> $@
 	@echo "" >> $@
 	@echo "# Keep specific files" >> $@
-	@echo "!.gitignore" >> $@
-	@echo "!Makefile" >> $@
-	@echo "!*.md" >> $@
+	@for file in $(TRACKING); do \
+		echo "!$$file" >> $@; \
+	done
 	git add .gitignore
 	git commit -m "Add .gitignore file"
 
