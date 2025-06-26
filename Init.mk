@@ -27,4 +27,12 @@ README.md: | .git
 	git commit --allow-empty -m "Initialize repository"
 
 clean:
-	rm -i Init.mk
+	@echo "Are you really REALLY sure you want to do this ??? (Y/n)"; \
+	read -r answer; \
+	if [ "$$answer" == "Y" ]; then \
+		echo "Cleaning up ..."; \
+	else \
+		echo "Aborted."; \
+		exit 1; \
+	fi
+	echo rm -ir $(TRACKING) .git Init.mk 
