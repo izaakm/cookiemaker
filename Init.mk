@@ -16,8 +16,14 @@ README.md: | .git
 	echo "Project \"$$title\" created."
 
 .gitignore: | .git
+	@echo "# Keep directories" >> $@
+	@echo "!*/" >> $@
+	@echo "" >> $@
+	@echo "# Ignore everything by default" >> $@
 	@echo "*" >> $@
 	@echo ".*" >> $@
+	@echo "" >> $@
+	@echo "# Keep specific files" >> $@
 	@for file in $(TRACKING); do \
 		echo "!$$file" >> $@; \
 	done
