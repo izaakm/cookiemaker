@@ -24,9 +24,9 @@ README.md: | .git
 	@echo "!*/" >> $@
 	@echo "" >> $@
 	@echo "# Keep specific files" >> $@
-	@echo ".gitignore" >> $@
-	@echo "Makefile" >> $@
-	@echo "*.md" >> $@
+	@echo "!.gitignore" >> $@
+	@echo "!Makefile" >> $@
+	@echo "!*.md" >> $@
 	git add .gitignore
 	git commit -m "Add .gitignore file"
 
