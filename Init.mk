@@ -37,4 +37,4 @@ clean:
 		echo "Aborted."; \
 		exit 1; \
 	fi
-	echo rm -ir $(TRACKING) .git Init.mk 
+	rm -ir $(TRACKING) .git Init.mk 
