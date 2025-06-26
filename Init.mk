@@ -10,7 +10,7 @@ README.md: | .git
 	@read -p "Enter project title (human readable): " title; \
 	echo "% $$title" > README.md; \
 	git add README.md; \
-	git commit -m "Initialize project"; \
+	git commit -m "Initialize README.md"; \
 	echo "Project \"$$title\" created."
 
 .gitignore: | .git
@@ -24,6 +24,7 @@ README.md: | .git
 
 .git:
 	git init .
+	git commit --allow-empty -m "Initialize repository"
 
 clean:
 	rm -i Init.mk
