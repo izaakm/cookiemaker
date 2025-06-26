@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 TRACKING := .gitignore README.md Makefile
 
 .PHONY: init
@@ -29,7 +31,7 @@ README.md: | .git
 clean:
 	@echo "Are you really REALLY sure you want to do this ??? (Y/n)"; \
 	read -r answer; \
-	if [ "$$answer" == "Y" ]; then \
+	if [[ "$$answer" == "Y" ]]; then \
 		echo "Cleaning up ..."; \
 	else \
 		echo "Aborted."; \
