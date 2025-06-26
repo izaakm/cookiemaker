@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-TRACKING := .gitignore README.md Makefile
+TRACKING := .gitignore *.md Makefile
 
 .PHONY: init
 init: | .git
@@ -16,17 +16,17 @@ README.md: | .git
 	echo "Project \"$$title\" created."
 
 .gitignore: | .git
-	@echo "# Keep directories" >> $@
-	@echo "!*/" >> $@
-	@echo "" >> $@
 	@echo "# Ignore everything by default" >> $@
 	@echo "*" >> $@
 	@echo ".*" >> $@
 	@echo "" >> $@
+	@echo "# Keep directories" >> $@
+	@echo "!*/" >> $@
+	@echo "" >> $@
 	@echo "# Keep specific files" >> $@
-	@for file in $(TRACKING); do \
-		echo "!$$file" >> $@; \
-	done
+	@echo ".gitignore" >> $@
+	@echo "Makefile" >> $@
+	@echo "*.md" >> $@
 	git add .gitignore
 	git commit -m "Add .gitignore file"
 
